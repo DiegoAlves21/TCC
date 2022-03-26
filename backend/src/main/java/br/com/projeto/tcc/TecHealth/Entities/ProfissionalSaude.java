@@ -23,28 +23,41 @@ public class ProfissionalSaude {
 	private Date dataIniVigencia;
 	private Date dataFimVigencia;
 	private Boolean indMedico;
+	private String cpf;
 	
 	@ManyToOne
 	@JoinColumn(name = "especialidadeId")
 	private Especialidade especialidade;
 	
-	@OneToMany(mappedBy = "profissionalSaudeHorTrab")
+	@OneToMany(mappedBy = "profissionalSaude")
 	private List<HorarioTrabalho> horarioTrabalho;
+	
+	@ManyToOne
+	@JoinColumn(name = "consultaId")
+	private Consulta consulta;
+	
+	@ManyToOne
+	@JoinColumn(name = "prestadorId")
+	private Prestador prestador;
 	
 	public ProfissionalSaude() {
 		
 	}
 
 	public ProfissionalSaude(int id, String nome, Date dataIniVigencia, Date dataFimVigencia, Boolean indMedico,
-			Especialidade especialidade, List<HorarioTrabalho> horarioTrabalho) {
+			String cpf, Especialidade especialidade, List<HorarioTrabalho> horarioTrabalho, Consulta consulta,
+			Prestador prestador) {
 		super();
 		this.id = id;
 		Nome = nome;
 		this.dataIniVigencia = dataIniVigencia;
 		this.dataFimVigencia = dataFimVigencia;
 		this.indMedico = indMedico;
+		this.cpf = cpf;
 		this.especialidade = especialidade;
 		this.horarioTrabalho = horarioTrabalho;
+		this.consulta = consulta;
+		this.prestador = prestador;
 	}
 
 	public int getId() {
@@ -87,6 +100,14 @@ public class ProfissionalSaude {
 		this.indMedico = indMedico;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
@@ -101,6 +122,22 @@ public class ProfissionalSaude {
 
 	public void setHorarioTrabalho(List<HorarioTrabalho> horarioTrabalho) {
 		this.horarioTrabalho = horarioTrabalho;
+	}
+
+	public Consulta getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(Consulta consulta) {
+		this.consulta = consulta;
+	}
+
+	public Prestador getPrestador() {
+		return prestador;
+	}
+
+	public void setPrestador(Prestador prestador) {
+		this.prestador = prestador;
 	}
 	
 }

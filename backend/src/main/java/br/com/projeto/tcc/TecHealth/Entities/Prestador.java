@@ -15,8 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.projeto.tcc.TechHealth.Enum.TipoInstituicao;
-import br.com.projeto.tcc.TechHealth.Enum.TipoPrestador;
+import br.com.projeto.tcc.TecHealth.Enum.TipoInstituicao;
+import br.com.projeto.tcc.TecHealth.Enum.TipoPrestador;
 
 @Entity
 @Table(name = "prestador")
@@ -39,10 +39,10 @@ public class Prestador {
 	@JoinColumn(name = "enderecoId")
 	private Endereco endereco;
 	
-	@OneToMany(mappedBy = "prestadorLeito")
+	@OneToMany(mappedBy = "prestador")
 	private List<Leito> leito;
 	
-	@OneToMany(mappedBy = "prestadorProfSaude")
+	@OneToMany(mappedBy = "prestador")
 	private List<ProfissionalSaude> profissionalSaude;
 	
 	public Prestador() {

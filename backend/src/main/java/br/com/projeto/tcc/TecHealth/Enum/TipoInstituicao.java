@@ -1,4 +1,4 @@
-package br.com.projeto.tcc.TechHealth.Enum;
+package br.com.projeto.tcc.TecHealth.Enum;
 
 public enum TipoInstituicao {
 	
