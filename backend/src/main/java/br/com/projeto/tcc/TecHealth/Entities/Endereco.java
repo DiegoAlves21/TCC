@@ -1,5 +1,6 @@
 package br.com.projeto.tcc.TecHealth.Entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,12 +14,26 @@ public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=50)
 	private String logradouro;
+	
+	@Column(length=8)
 	private String cep;
+	
+	@Column(length=40)
 	private String bairro;
+	
+	@Column(length=40)
 	private String municipio;
+	
+	@Column(length=2)
 	private String uf;
+	
+	@Column(length=100)
 	private String latitude;
+	
+	@Column(length=100)
 	private String longitude;
 	
 	public Endereco(int id, String logradouro, String cep, String bairro, String municipio, String uf, String latitude,

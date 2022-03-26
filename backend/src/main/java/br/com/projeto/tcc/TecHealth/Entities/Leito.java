@@ -1,5 +1,6 @@
 package br.com.projeto.tcc.TecHealth.Entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,6 +21,7 @@ public class Leito {
 	private int id;
 	private int quantidade;
 	
+	@Column(length=20)
 	@Enumerated(EnumType.STRING)
 	private TipoLeito tipoLeito;
 	

@@ -1,5 +1,6 @@
 package br.com.projeto.tcc.TecHealth.Entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,26 +16,37 @@ public class HorarioTrabalho {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=20)
 	private String diaDaSemana;
+	
+	@Column(length=10)
 	private String HorarioInicial;
+	
+	@Column(length=10)
 	private String HorarioFinal;
 	
 	@ManyToOne
 	@JoinColumn(name = "profissionalSaudeId")
 	private ProfissionalSaude profissionalSaude;
 	
+	@ManyToOne
+	@JoinColumn(name = "prestadorId")
+	private Prestador prestador;
+	
 	public HorarioTrabalho() {
 		
 	}
 
 	public HorarioTrabalho(int id, String diaDaSemana, String horarioInicial, String horarioFinal,
-			ProfissionalSaude profissionalSaude) {
+			ProfissionalSaude profissionalSaude, Prestador prestador) {
 		super();
 		this.id = id;
 		this.diaDaSemana = diaDaSemana;
 		HorarioInicial = horarioInicial;
 		HorarioFinal = horarioFinal;
 		this.profissionalSaude = profissionalSaude;
+		this.prestador = prestador;
 	}
 
 	public int getId() {
@@ -75,6 +87,14 @@ public class HorarioTrabalho {
 
 	public void setProfissionalSaude(ProfissionalSaude profissionalSaude) {
 		this.profissionalSaude = profissionalSaude;
+	}
+
+	public Prestador getPrestador() {
+		return prestador;
+	}
+
+	public void setPrestador(Prestador prestador) {
+		this.prestador = prestador;
 	}
 
 }

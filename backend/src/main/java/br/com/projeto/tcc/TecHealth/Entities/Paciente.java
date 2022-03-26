@@ -3,6 +3,7 @@ package br.com.projeto.tcc.TecHealth.Entities;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,22 @@ public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=50)
 	private String nome;
+	
+	@Column(length=11)
 	private String cpf;
+	
 	private Date dataNascimento;
+	
+	@Column(length=10)
 	private String rg;
+	
+	@Column(length=12)
 	private String celular;
+	
+	@Column(length=200)
 	private String cartaoVacina;
 	
 	@OneToOne(cascade = CascadeType.ALL)

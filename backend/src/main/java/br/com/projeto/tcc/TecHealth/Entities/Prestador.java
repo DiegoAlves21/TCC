@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,13 +26,17 @@ public class Prestador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=50)
 	private String nome;
 	private Date dataIniVigencia;
 	private Date dataFimVigencia;
 	
+	@Column(length=30)
 	@Enumerated(EnumType.STRING)
 	private TipoPrestador tipoPrestador;
 	
+	@Column(length=10)
 	@Enumerated(EnumType.STRING)
 	private TipoInstituicao tipoInstituicao;
 	

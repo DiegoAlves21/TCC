@@ -3,11 +3,15 @@ package br.com.projeto.tcc.TecHealth.Entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,22 +23,27 @@ public class ProfissionalSaude {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=50)
 	private String Nome;
 	private Date dataIniVigencia;
 	private Date dataFimVigencia;
 	private Boolean indMedico;
+	
+	@Column(length=11)
 	private String cpf;
 	
 	@ManyToOne
 	@JoinColumn(name = "especialidadeId")
 	private Especialidade especialidade;
 	
-	@OneToMany(mappedBy = "profissionalSaude")
-	private List<HorarioTrabalho> horarioTrabalho;
-	
-	@ManyToOne
-	@JoinColumn(name = "consultaId")
-	private Consulta consulta;
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "ConsultaProfissionalSaude",
+            joinColumns = @JoinColumn(name = "consultaId"),
+            inverseJoinColumns = @JoinColumn(name = "profissionalSaudeId")
+    )
+	private List<Consulta> consulta;
 	
 	@ManyToOne
 	@JoinColumn(name = "prestadorId")
@@ -45,8 +54,7 @@ public class ProfissionalSaude {
 	}
 
 	public ProfissionalSaude(int id, String nome, Date dataIniVigencia, Date dataFimVigencia, Boolean indMedico,
-			String cpf, Especialidade especialidade, List<HorarioTrabalho> horarioTrabalho, Consulta consulta,
-			Prestador prestador) {
+			String cpf, Especialidade especialidade, List<Consulta> consulta, Prestador prestador) {
 		super();
 		this.id = id;
 		Nome = nome;
@@ -55,7 +63,6 @@ public class ProfissionalSaude {
 		this.indMedico = indMedico;
 		this.cpf = cpf;
 		this.especialidade = especialidade;
-		this.horarioTrabalho = horarioTrabalho;
 		this.consulta = consulta;
 		this.prestador = prestador;
 	}
@@ -116,19 +123,11 @@ public class ProfissionalSaude {
 		this.especialidade = especialidade;
 	}
 
-	public List<HorarioTrabalho> getHorarioTrabalho() {
-		return horarioTrabalho;
-	}
-
-	public void setHorarioTrabalho(List<HorarioTrabalho> horarioTrabalho) {
-		this.horarioTrabalho = horarioTrabalho;
-	}
-
-	public Consulta getConsulta() {
+	public List<Consulta> getConsulta() {
 		return consulta;
 	}
 
-	public void setConsulta(Consulta consulta) {
+	public void setConsulta(List<Consulta> consulta) {
 		this.consulta = consulta;
 	}
 
