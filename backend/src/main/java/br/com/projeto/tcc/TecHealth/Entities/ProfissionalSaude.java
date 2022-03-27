@@ -28,7 +28,6 @@ public class ProfissionalSaude {
 	private String Nome;
 	private Date dataIniVigencia;
 	private Date dataFimVigencia;
-	private Boolean indMedico;
 	
 	@Column(length=11)
 	private String cpf;
@@ -53,14 +52,13 @@ public class ProfissionalSaude {
 		
 	}
 
-	public ProfissionalSaude(int id, String nome, Date dataIniVigencia, Date dataFimVigencia, Boolean indMedico,
+	public ProfissionalSaude(int id, String nome, Date dataIniVigencia, Date dataFimVigencia,
 			String cpf, Especialidade especialidade, List<Consulta> consulta, Prestador prestador) {
 		super();
 		this.id = id;
 		Nome = nome;
 		this.dataIniVigencia = dataIniVigencia;
 		this.dataFimVigencia = dataFimVigencia;
-		this.indMedico = indMedico;
 		this.cpf = cpf;
 		this.especialidade = especialidade;
 		this.consulta = consulta;
@@ -97,14 +95,6 @@ public class ProfissionalSaude {
 
 	public void setDataFimVigencia(Date dataFimVigencia) {
 		this.dataFimVigencia = dataFimVigencia;
-	}
-
-	public Boolean getIndMedico() {
-		return indMedico;
-	}
-
-	public void setIndMedico(Boolean indMedico) {
-		this.indMedico = indMedico;
 	}
 
 	public String getCpf() {

@@ -32,6 +32,9 @@ public class Prestador {
 	private Date dataIniVigencia;
 	private Date dataFimVigencia;
 	
+	@Column(length=14)
+	private String cnpj;
+	
 	@Column(length=30)
 	@Enumerated(EnumType.STRING)
 	private TipoPrestador tipoPrestador;
@@ -54,14 +57,15 @@ public class Prestador {
 		
 	}
 
-	public Prestador(int id, String nome, Date dataIniVigencia, Date dataFimVigencia, TipoPrestador tipoPrestador,
-			TipoInstituicao tipoInstituicao, Endereco endereco, List<Leito> leito,
+	public Prestador(int id, String nome, Date dataIniVigencia, Date dataFimVigencia, String cnpj,
+			TipoPrestador tipoPrestador, TipoInstituicao tipoInstituicao, Endereco endereco, List<Leito> leito,
 			List<ProfissionalSaude> profissionalSaude) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.dataIniVigencia = dataIniVigencia;
 		this.dataFimVigencia = dataFimVigencia;
+		this.cnpj = cnpj;
 		this.tipoPrestador = tipoPrestador;
 		this.tipoInstituicao = tipoInstituicao;
 		this.endereco = endereco;
@@ -99,6 +103,14 @@ public class Prestador {
 
 	public void setDataFimVigencia(Date dataFimVigencia) {
 		this.dataFimVigencia = dataFimVigencia;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 	public TipoPrestador getTipoPrestador() {
