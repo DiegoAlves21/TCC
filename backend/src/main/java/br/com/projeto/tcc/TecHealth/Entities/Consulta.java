@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -42,7 +43,12 @@ public class Consulta {
 	@JoinColumn(name = "prestadorId")
 	private Prestador prestador;
 	
-	@ManyToMany(mappedBy = "consulta")
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "ConsultaProfissionalSaude",
+            joinColumns = @JoinColumn(name = "consultaId"),
+            inverseJoinColumns = @JoinColumn(name = "profissionalSaudeId")
+    )
 	private List<ProfissionalSaude> profissionalSaude;
 	
 	@ManyToOne

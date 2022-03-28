@@ -36,14 +36,6 @@ public class ProfissionalSaude {
 	@JoinColumn(name = "especialidadeId")
 	private Especialidade especialidade;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "ConsultaProfissionalSaude",
-            joinColumns = @JoinColumn(name = "consultaId"),
-            inverseJoinColumns = @JoinColumn(name = "profissionalSaudeId")
-    )
-	private List<Consulta> consulta;
-	
 	@ManyToOne
 	@JoinColumn(name = "prestadorId")
 	private Prestador prestador;
@@ -53,7 +45,7 @@ public class ProfissionalSaude {
 	}
 
 	public ProfissionalSaude(int id, String nome, Date dataIniVigencia, Date dataFimVigencia,
-			String cpf, Especialidade especialidade, List<Consulta> consulta, Prestador prestador) {
+			String cpf, Especialidade especialidade, Prestador prestador) {
 		super();
 		this.id = id;
 		Nome = nome;
@@ -61,7 +53,6 @@ public class ProfissionalSaude {
 		this.dataFimVigencia = dataFimVigencia;
 		this.cpf = cpf;
 		this.especialidade = especialidade;
-		this.consulta = consulta;
 		this.prestador = prestador;
 	}
 
@@ -111,14 +102,6 @@ public class ProfissionalSaude {
 
 	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
-	}
-
-	public List<Consulta> getConsulta() {
-		return consulta;
-	}
-
-	public void setConsulta(List<Consulta> consulta) {
-		this.consulta = consulta;
 	}
 
 	public Prestador getPrestador() {
