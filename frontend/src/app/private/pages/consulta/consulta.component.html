@@ -1,0 +1,54 @@
+<div>
+  <h4 class="text-muted mb-4">Consultas e Exames</h4>
+  <input type="text" style="margin-bottom: 1%;" class="form-control search-field" placeholder="Pesquise aqui" [(ngModel)]="searchText">
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Paciente</th>
+                  <th scope="col">Horario</th>
+                  <th scope="col">Data Consulta</th>
+                  <th scope="col">Prestador</th>
+                  <th scope="col">Profissional Saúde</th>
+                  <th scope="col">Tipo de Exame ou Procedimento</th>
+                  <th scope="col">Situação</th>
+                  <th scope="col">Opções</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listaConsultas | searchFilter: searchText">
+                  <td>{{item.paciente}}</td>
+                  <td>{{item.horario}}</td>
+                  <td>{{item.dataConsulta}}</td>
+                  <td>{{item.prestador}}</td>
+                  <td>{{item.profissionalSaude}}</td>
+                  <td>{{item.tipoDeExameOuProc}}</td>
+                  <td>{{item.situacao}}</td>
+                  <td>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                      <i class="far fa-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                      <i class="fa fa-search"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="button" style="margin: 2% 42%;" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="adicionar()">Adicionar &nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+  </div>

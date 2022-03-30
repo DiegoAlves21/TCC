@@ -23,6 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicComponent } from './public/public.component';
 import { LoginComponent } from './public/login/login.component';
 import { PrivateComponent } from './private/private.component';
+import { ProfissionalSaudeComponent } from './private/pages/profissional-saude/profissional-saude.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { CadastroProfissionalComponent } from './private/pages/profissional-saude/cadastro-profissional/cadastro-profissional.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PrestadorComponent } from './private/pages/prestador/prestador.component';
+import { CadastroPrestadorComponent } from './private/pages/prestador/cadastro-prestador/cadastro-prestador.component';
+import { ConsultaComponent } from './private/pages/consulta/consulta.component';
+import { CadastrarConsultaComponent } from './private/pages/consulta/cadastrar-consulta/cadastrar-consulta.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +46,14 @@ import { PrivateComponent } from './private/private.component';
     NotificationsComponent,
     PublicComponent,
     LoginComponent,
-    PrivateComponent
+    PrivateComponent,
+    ProfissionalSaudeComponent,
+    SearchFilterPipe,
+    CadastroProfissionalComponent,
+    PrestadorComponent,
+    CadastroPrestadorComponent,
+    ConsultaComponent,
+    CadastrarConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +64,8 @@ import { PrivateComponent } from './private/private.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSelectModule
     ],
   providers: [],
   bootstrap: [AppComponent]

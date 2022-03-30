@@ -1,0 +1,51 @@
+<div>
+  <h4 class="text-muted mb-4">Prestadores de Serviço</h4>
+  <input type="text" style="margin-bottom: 1%;" class="form-control search-field" placeholder="Pesquise aqui" [(ngModel)]="searchText">
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">CNPJ</th>
+                  <th scope="col">Tipo Prestador</th>
+                  <th scope="col">Tipo Instituição</th>
+                  <th scope="col">Data Início Vigência</th>
+                  <th scope="col">Data Fim Vigência</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listaPrestadores | searchFilter: searchText">
+                  <td>{{item.nome}}</td>
+                  <td>{{item.cnpj}}</td>
+                  <td>{{item.tipoPrestador}}</td>
+                  <td>{{item.tipoInstituicao}}</td>
+                  <td>{{item.dataIniVigencia}}</td>
+                  <td>{{item.dataFimVigencia}}</td>
+                  <td>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                      <i class="far fa-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                      <i class="fa fa-search"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-lightning rounded-0">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="button" style="margin: 2% 42%;" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="adicionar()">Adicionar &nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+  </div>

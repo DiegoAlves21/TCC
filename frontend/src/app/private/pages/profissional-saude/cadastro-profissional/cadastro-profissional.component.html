@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12 mb-4 ">
+
+    <div class="card border-0 rounded-0">
+      <div class="card-title mb-1 p-3">
+        <h5>Cadastrar Profissional Saúde</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="nomeProfissional">Nome</label>
+            <input type="text" class="form-control  rounded-0" id="nomeProfissional">
+          </div>
+          <div class="form-group">
+            <label for="cpfProfissional">CPF</label>
+            <input type="text" [maxLength]="11" style="width: 15% !important;" class="form-control  rounded-0" id="cpfProfissional">
+          </div>
+          <div class="form-group">
+            <label for="dataProfissional">Data Início Vigência</label>
+            <input type="date" [maxLength]="10" style="width: 10% !important;" class="form-control  rounded-0" id="dataProfissional">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Especialidade</label>
+            <ng-select [(ngModel)]="selectedEspecialidade">
+              <ng-option *ngFor="let especialidade of listaEspecialidade" [value]="especialidade.id">{{especialidade.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="prestadorProfissional">Prestador</label>
+            <ng-select [(ngModel)]="selectedPrestador">
+              <ng-option *ngFor="let prestador of listaPrestador" [value]="prestador.id">{{prestador.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <button type="button" style="margin-left: 44%;" class="btn btn-lightning rounded-0 mb-2 mr-2">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

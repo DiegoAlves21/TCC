@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-12 mb-4 ">
+
+    <div class="card border-0 rounded-0">
+      <div class="card-title mb-1 p-3">
+        <h5>Cadastrar Consulta e Exame</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="dataConsulta">Data da Consulta</label>
+            <input type="date" [maxLength]="10" style="width: 10% !important;" class="form-control  rounded-0" id="dataConsulta">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Paciente</label>
+            <ng-select [(ngModel)]="selectedPaciente">
+              <ng-option *ngFor="let Paciente of listaPaciente" [value]="Paciente.id">{{Paciente.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="prestador">Prestador</label>
+            <ng-select [(ngModel)]="selectedPrestador">
+              <ng-option *ngFor="let prestador of listaPrestador" [value]="prestador.id">{{prestador.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="profissionalSaudeSelectLabel">Profissional Saúde</label>
+            <ng-select [(ngModel)]="selectedProfissional">
+              <ng-option *ngFor="let profissional of listaProfissional" [value]="profissional.id">{{profissional.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="tipoExame">Tipo de Exame</label>
+            <ng-select [(ngModel)]="selectedTipoExame">
+              <ng-option *ngFor="let tipoExame of listaTipoExame" [value]="tipoExame.id">{{tipoExame.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="tipoProcedimento">Tipo de Procedimento</label>
+            <ng-select [(ngModel)]="selectedTipoProcedimento">
+              <ng-option *ngFor="let tipoProcedimento of listaTipoProcedimento" [value]="tipoProcedimento.id">{{tipoProcedimento.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <button type="button" style="margin-left: 44%; width: 10%;" class="btn btn-lightning rounded-0">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

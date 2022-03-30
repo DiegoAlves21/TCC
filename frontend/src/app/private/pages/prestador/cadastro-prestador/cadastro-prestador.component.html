@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5>Cadastrar Prestador de Serviço</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="nomePrestador">Nome</label>
+            <input type="text" class="form-control  rounded-0" id="nomePrestador">
+          </div>
+          <div class="form-group">
+            <label for="cnpjPrestador">CNPJ</label>
+            <input type="text" [maxLength]="14" style="width: 25% !important;" class="form-control  rounded-0" id="cnpjPrestador">
+          </div>
+          <div class="form-group">
+            <label for="dataPrestador">Data Início Vigência</label>
+            <input type="date" [maxLength]="10" style="width: 20% !important;" class="form-control  rounded-0" id="dataPrestador">
+          </div>
+          <!--<div class="form-group">
+            <label for="dataPrestador">Quantidade de Leitos</label>
+            <input type="date" [maxLength]="10" style="width: 9% !important;" class="form-control  rounded-0" id="dataPrestador">
+          </div>
+          <div class="form-group">
+            <label for="TipoLeitoSelectLabel">Tipo Leito</label>
+            <ng-select [(ngModel)]="selectedTipoLeito">
+              <ng-option *ngFor="let tipoLeito of listaTipoLeito" [value]="tipoLeito.id">{{tipoLeito.name}}</ng-option>
+            </ng-select>
+          </div>-->
+          <div class="form-group">
+            <label for="TipoPrestadorSelectLabel">Tipo Prestador</label>
+            <ng-select [(ngModel)]="selectedTipoPrestador">
+              <ng-option *ngFor="let tipoPrestador of listaTipoPrestador" [value]="tipoPrestador.id">{{tipoPrestador.name}}</ng-option>
+            </ng-select>
+          </div>
+          <div class="form-group">
+            <label for="TipoInstituicaoSelectLabel">Tipo Instituição</label>
+            <ng-select [(ngModel)]="selectedTipoInstituicao">
+              <ng-option *ngFor="let tipoInstituicao of listaTipoInstituicao" [value]="tipoInstituicao.id">{{tipoInstituicao.name}}</ng-option>
+            </ng-select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5>Endereço do Prestador</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group row">
+            <label for="logradouro" class="col-sm-2 col-form-label text-nowrap">Logradouro</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control rounded-0" id="logradouro">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="cep" class="col-sm-2 col-form-label text-nowrap">CEP</label>
+            <div class="col-sm-10">
+              <input type="text" style="width: 20% !important;" class="form-control rounded-0" id="cep">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="bairro" class="col-sm-2 col-form-label text-nowrap">bairro</label>
+            <div class="col-sm-10">
+              <input type="text" style="width: 35% !important;" class="form-control rounded-0" id="bairro">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="municipio" class="col-sm-2 col-form-label text-nowrap">municipio</label>
+            <div class="col-sm-10">
+              <input type="text" style="width: 35% !important;" class="form-control rounded-0" id="municipio">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="uf" class="col-sm-2 col-form-label text-nowrap">UF</label>
+            <div class="col-sm-10">
+              <input type="text" style="width: 9% !important;" maxlength="2" class="form-control rounded-0" id="uf">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="latitude" class="col-sm-2 col-form-label text-nowrap">latitude</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control rounded-0" id="latitude">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="longitude" class="col-sm-2 col-form-label text-nowrap">longitude</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control rounded-0" id="longitude">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="button" style="margin-left: 750px; width: 100px;" class="btn btn-lightning rounded-0">Salvar</button>
+  </div>
+</div>
