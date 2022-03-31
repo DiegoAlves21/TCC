@@ -1,0 +1,10 @@
+a) O sistema deve manter o cadastro dos postos de saúde, dos hospitais, dos laboratórios
+de análises clínicas e das clínicas médicas, sejam públicas ou privadas.
+
+b) O sistema deve manter o cadastro de todos os profissionais de saúde: médicos (com as
+respectivas especialidades), enfermeiros, fisioterapeutas, psicólogos, etc., bem como
+dos respectivos horários de trabalho.
+
+f) O sistema deve controlar a agenda de consultas e de realização de exames; qualquer
+usuário do sistema de saúde pública pode consultar e solicitar uma marcação nessas
+duas agendas.
